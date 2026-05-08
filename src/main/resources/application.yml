@@ -1,0 +1,23 @@
+general:
+  kafka-topic: trader-updates
+
+ratelimit:
+  inbound:
+    capacity: 20
+    refill-per-second: 10
+  outbound:
+    capacity: 10
+    refill-per-second: 5
+
+spring:
+  kafka:
+    consumer:
+      group-id: midas-core
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      properties:
+        spring.json.trusted.packages: "com.jpmc.midascore.foundation"
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
