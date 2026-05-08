@@ -1,0 +1,8 @@
+target/
+.git/
+.idea/
+.vscode/
+*.iml
+.claude/
+.mvn/wrapper/maven-wrapper.jar
+**/*.log
